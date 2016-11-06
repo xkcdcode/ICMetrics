@@ -6,8 +6,8 @@
 #include <wolfssl/wolfcrypt/sha256.h>
 #include <wolfssl/wolfcrypt/sha512.h>
 
-#define KEY_SIZE 32
-#define HASH SHA512
+#define KEY_SIZE 256
+#define HASH SHA256
 
 unsigned long long get_usec()
 {
