@@ -3,11 +3,10 @@
 #include <sys/time.h>
 
 #include <wolfssl/wolfcrypt/pwdbased.h>
-#include <wolfssl/wolfcrypt/sha256.h>
-#include <wolfssl/wolfcrypt/sha512.h>
+#include <wolfssl/wolfcrypt/md5.h>
 
-#define KEY_SIZE 32
-#define HASH SHA512
+#define KEY_SIZE 256
+#define HASH MD5
 
 unsigned long long get_usec()
 {
@@ -45,9 +44,6 @@ int main(void)
 	start = get_usec();
 
 	ret = wc_PBKDF2(derived, (byte*)passwd, (int)XSTRLEN(passwd), salt, 8, iterations, kLen, HASH);
-	const char  new_passwd[KEY_SIZE];
-	memcpy((void*)new_passwd, derived, sizeof(derived));
-	ret = wc_PBKDF2(derived, (byte*)new_passwd, (int)XSTRLEN(new_passwd), salt, 8, iterations, kLen, HASH);
 
 	duration = get_usec() - start;
 
