@@ -1,1 +1,1 @@
-src/simpleAES.d: ../src/simpleAES.c
+src/simpleAES.o: ../src/simpleAES.c
